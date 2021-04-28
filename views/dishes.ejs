@@ -1,0 +1,31 @@
+<%- include("partials/header") -%>
+
+<!-- content -->
+<div class="content-2">
+
+  <div class="dishes-heading">
+    <div class="jumbotron">
+      <h1 class="display-4">Tasty dishes near your door!</h1>
+      <p class="lead">Explore tasty and crunchy food in your city and order soon.</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-around dish-div mb-4">
+    <% let k=1 %>
+    <% for(let d of dishList) { %>
+      <div class="col-lg-3 col-sm-6 card">
+          <img class="card-img-top" src="https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Image of <%= d.dish_name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= d.dish_name %></h5>
+            <!-- <p class="card-text" style="display: inline"><%= d.discription %></p> -->
+            <img class="veg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Indian-vegetarian-mark.svg/233px-Indian-vegetarian-mark.svg.png" alt="">
+            <p class="card-text price">Rs. <%= d.price %></p>
+            <button class="btn btn-dark btn-block add-cart" type="button" name="button" onClick="addToCart(<%= d.dish_ID %>)">Add to cart</button>
+          </div>
+      </div>
+    <% } %>
+  </div>
+
+</div>
+
+<%- include("partials/footer") -%>

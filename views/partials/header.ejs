@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dishtreet</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/78e4e79489.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- navigation bar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand" href="/">Dishtreet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <form class="form-inline search-bar">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for dishes..." aria-describedby="basic-addon1">
+            <div class="input-group-append">
+              <button class="btn btn-outline-light" type="button" name="button"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active tabs">
+              <a class="nav-link" href="/">HOME</a>
+            </li>
+            <li class="nav-item tabs">
+              <a class="nav-link" href="/vendors">VENDORS</a>
+            </li>
+            <li class="nav-item tabs">
+              <a class="nav-link" href="/dishes">DISHES</a>
+            </li>
+            <li class="nav-item tabs">
+              <a href="/cart"><button type="button" class="btn btn-outline-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"></path>
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"></path>
+              </svg></button></a>
+            </li>
+            <li class="nav-item tabs">
+              <a href="/profile"><button type="button" class="btn btn-outline-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+              </svg></button></a>
+            </li>
+            <li class="nav-item tabs">
+              <a class="nav-link" href="/login">LOGIN</a>
+            </li>
+            <li class="nav-item tabs">
+              <a class="nav-link" href="/logout">LOGOUT</a>
+            </li>
+          </ul>
+        </div>
+      </nav>

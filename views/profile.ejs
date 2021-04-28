@@ -1,0 +1,215 @@
+<%- include("partials/header") -%>
+
+<!-- content -->
+<div class="">
+
+  <div class="profile-div">
+    <div class="black-back mt-5">
+      <div class="container pt-5 px-5">
+        <div class="media align-items-end profile-head">
+          <div class="profile mr-2">
+            <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/instagram-3814049_1280.png" alt="..." width="180" class="rounded mb-2 img-thumbnail">
+          </div>
+          <div class="media-body mb-5 ml-2 text-white">
+            <h4 class="mt-0 mb-0" style="display: inline;"> <%= cust.cust_name %> </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-div container mt-5">
+    <h3>About</h3>
+    <div class="white-back row p-2">
+      <div class="col-sm-6" style="border-left: 2px solid grey;">
+        <p class="font-weight-bold"><i class="fas fa-envelope"></i>  EMAIL</p>
+        <h6 class="text-muted"><%= cust.email %></h6>
+      </div>
+      <div class="col-sm-6" style="border-left: 2px solid grey;">
+        <p class="font-weight-bold"><i class="fas fa-phone"></i>  PHONE</p>
+        <h6 class="text-muted"><%= cust.cust_mobile %></h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="address-div container mt-5">
+    <h3>Address</h3>
+      <div class="row p-2 white-back">
+        <% let n = 1 %>
+        <% if(addressList.length>0) { %>
+        <% for(let ad of addressList) { %>
+          <div class="container-fluid p-2 m-2 block3d">
+            <div class="col-sm-12 mb-2">
+              <h5><i class="fas fa-home"></i>  Address #<%= n++ %></h5>
+              <hr>
+            </div>
+            <ul class="col-sm-12 ml-2">
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">House No</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= ad.house_no %></h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">Street Name</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= ad.street %></h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">City</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= ad.city %></h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">State</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= ad.state %></h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">Zip Code</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= ad.zip %></h6>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <% } %>
+        <% } %>
+
+        <div class="container-fluid p-2 m-2">
+          <div class="float-right">
+            <button class="btn btn-dark" type="button" name="button" data-toggle="modal" data-target="#addressModal">Add New Address</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- Address Modal -->
+  <div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addressModalLabel">Add New Address</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h6>Enter the details below</h6>
+          <form action="/profile" method="post" id="address-form">
+            <div class="form-group">
+              <label for="house-no" class="col-form-label">House Number:</label>
+              <input type="text" class="form-control" id="house-no" name="house_no">
+            </div>
+            <div class="form-group">
+              <label for="street-name" class="col-form-label">Street Name:</label>
+              <input type="text" class="form-control" id="street-name" name="street">
+            </div>
+            <div class="form-group">
+              <label for="city" class="col-form-label">City:</label>
+              <input type="text" class="form-control" id="city" name="city">
+            </div>
+            <div class="form-group">
+              <label for="state" class="col-form-label">State:</label>
+              <input type="text" class="form-control" id="state" name="state">
+            </div>
+            <div class="form-group">
+              <label for="zip" class="col-form-label">Zip Code:</label>
+              <input type="text" class="form-control" id="zip" name="zip">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" form="address-form">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-div container mt-5 mb-5">
+    <h3>Previous Orders</h3>
+      <div class="row p-2 white-back">
+        <% let m = 1 %>
+        <% for(let or of orderList) { %>
+          <div class="container-fluid p-2 m-2 block3d">
+            <div class="col-sm-12 mb-2">
+              <h5><i class="fas fa-carrot"></i>  Order #<%= m++ %></h5>
+              <hr>
+            </div>
+            <ul class="col-sm-12 ml-2">
+              <li>
+                <div class="">
+                  <p class="key" style="font-weight: bold;">Items</p>
+                </div>
+                <ul class="order-items ml-4">
+                  <% for(let it of or.itemList) { %>
+                    <li class="item">
+                      <h6 class="text-muted"><%= it.name %> x <%= it.qty %></h6>
+                    </li>
+                  <% } %>
+                </ul>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">Date</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= or.date %></h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">Amount Paid</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted">Rs. <%= or.amt %></h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="key" style="font-weight: bold;">Mode of Payment</p>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <h6 class="text-muted"><%= or.mode %></h6>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <% } %>
+
+      </div>
+  </div>
+
+</div>
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,33 @@
+<%- include("partials/header") -%>
+
+<!-- content -->
+<div class="content-2">
+
+  <div class="vendor-heading">
+    <div class="jumbotron">
+      <h1 class="display-4">Vendors at your service!</h1>
+      <p class="lead">Explore the vendors that offer tasty foods in your city</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-around vendor-div-2">
+    <% let k=1 %>
+    <% for(let v of vendorList) { %>
+      <a href="/vendors/<%= v.profile.ID %>" class="col-lg-3 col-sm-6 card mb-4">
+        <img class="card-img-top" src="/images/v_<%= k++ %>.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= v.profile.name %></h5>
+            <div class="text-truncate">
+              <% for(let i of v.types) { %>
+                <p class="card-text types" style="display: inline"><%= i.category %>,</p>
+              <% } %>
+            </div>
+            <button class="my-3 btn btn-dark btn-block visit" type="button" name="button">Visit</button>
+          </div>
+      </a>
+    <% } %>
+  </div>
+
+</div>
+
+<%- include("partials/footer") -%>

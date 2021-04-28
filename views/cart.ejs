@@ -1,0 +1,96 @@
+<%- include("partials/header") -%>
+
+<!-- content -->
+<div class="content-2 cart-page">
+
+  <div class="cart-heading jumbotron">
+      <h1 class="display-4">Cart</h1>
+  </div>
+
+  <div class="cart-items">
+    <% for(let cd of cartList) { %>
+      <div class="cartdish-div container mt-3">
+        <div class="white-back row p-2">
+          <div class="col-sm-3" style="">
+            <img class="col-sm-8" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="">
+          </div>
+          <div class="col-sm-6" style="border-left: 2px solid grey;">
+            <p class="font-weight-bold"><%= cd.dish_name %></p>
+            <h6 class="text-muted dishPrice">Price: Rs. <%= cd.price %></h6>
+          </div>
+          <div class="col-sm-3">
+            <span class="float-right mt-1 mb-3" onClick="deleteFromCart(<%= cd.dish_ID %>)"><i class="fas fa-minus-circle"></i></span>
+            <h6 class="text-muted">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <button id="inputGroup-sizing-sm down-arrow" class="btn" type="button" name="button" onClick="decreaseQty(this, <%= cd.dish_ID %>)"><i class="fas fa-arrow-down"></i></button>
+                </div>
+                <input type="text" class="form-control qty" aria-describedby="inputGroup-sizing-sm" value=<%= cd.no_of_items %> disabled>
+                <div class="input-group-append">
+                  <button id="inputGroup-sizing-sm up-arrow" class="btn" type="button" name="button" onClick="increaseQty(this, <%= cd.dish_ID %>)"><i class="fas fa-arrow-up"></i></button>
+                </div>
+              </div>
+            </h6>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+  <div class="cart-price container mt-4 mb-4" style="width: 80%;">
+      <div class="container-fluid p-2 block3d white-back">
+        <div class="col-sm-12 mb-2">
+          <h5><i class="fas fa-receipt"></i>  Receipt</h5>
+          <hr>
+        </div>
+        <ul class="col-sm-12 ml-2 mb-0">
+          <li>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="key" style="font-weight: bold;">Total price</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <h6 class="text-muted total-price"></h6>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="key" style="font-weight: bold;">Tax</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <h6 class="text-muted tax"></h6>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="key" style="font-weight: bold;">Discount</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <h6 class="text-muted discount"></h6>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="key font-weight-bold">Final price</p>
+              </div>
+              <div class="col-sm-9">
+                <h6 class="font-weight-bold final-price"></h6>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="col-sm-12 mb-3 text-right">
+          <button class="btn btn-dark place-order" type="button" name="button" onclick="placeOrder()">Place order</button>
+        </div>
+      </div>
+  </div>
+
+</div>
+
+<%- include("partials/footer") -%>

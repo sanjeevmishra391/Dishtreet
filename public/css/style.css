@@ -1,0 +1,161 @@
+body{
+  background: #d8e3e7;
+}
+
+nav{
+  height: 60px;
+  background-image: linear-gradient(to right, #fc00ff, #00dbde);
+}
+
+nav .tabs{
+  margin-right: 20px;
+}
+
+.search-bar {
+  margin-left: 20%;
+}
+
+
+/* content */
+
+.content{
+  margin-top: 80px;
+}
+
+.content-2{
+  margin-top: 60px;
+}
+
+h4 {
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align:center;
+  background-color: #f1f1f1;
+  margin: 10px 5px;
+  padding: 0px;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+.sec {
+  margin-top: 10px;
+}
+
+.city-form .card {
+  align-items: center;
+  padding: 16px;
+}
+
+.vendor-div .card .card-img-top, .dish-div .card .card-img-top {
+  height: 200px;
+}
+
+.vendor-div-2 .card .card-img-top, .dish-div-2 .card .card-img-top {
+  height: 300px;
+}
+
+.sel-city {
+  background-image: linear-gradient(to right, #00dbde, #fc00ff);
+  color: white;
+}
+
+#see_all{
+  float: right;
+  color: black;
+  text-decoration: none;
+  margin-top: -30px;
+  margin-right: 10px;
+}
+
+.price {
+  float: right;
+  color: #f58634;
+  font-size: 20px;
+}
+
+.veg {
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+
+footer {
+  /* margin-top: 20px; */
+  padding: 20px;
+  height: 150px;
+  background-image: linear-gradient(to right, #fc00ff, #00dbde);
+}
+
+.footer-icon {
+  padding: 0px 8px;
+  color: white;
+}
+
+.copyright {
+  text-align: center;
+}
+
+@media (max-width: 765px) {
+  .search-bar {
+    margin-left: 0%;
+  }
+  .collapse {
+    background-color: #45526c;
+    padding: 20px;
+    width: 50%;
+  }
+  .card {
+    margin: 10px 20px;
+  }
+  .vendor-div .card .card-img-top, .dish-div .card .card-img-top {
+    height: 400px;
+  }
+
+}
+
+/* profile page */
+
+.black-back {
+  height: 200px;
+  background-image: url(https://images.unsplash.com/photo-1554050857-c84a8abdb5e2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2t8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60)
+}
+
+.white-back {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.block3d {
+  box-shadow: 0px 2px 4px grey;
+  border-radius: 5px;
+}
+
+hr {
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.address-div li {
+  list-style-type:none;
+}
+
+.cartdish-div span{
+  color: red;
+  cursor: pointer;
+}
