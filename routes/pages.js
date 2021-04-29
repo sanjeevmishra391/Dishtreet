@@ -7,13 +7,13 @@ const {requireSignin} = require("../controllers/auth");
 const {loginAuth} = require("../middleware/auth");
 
 var selectedCity = 211008;
-var cities = getCities();
-var homeVendors = featuredVendors(selectedCity);
-var homeDishes = featuredDishes(selectedCity);
 var dishes = getDishes(selectedCity);
 let cust_ID;
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
+  var cities = await getCities();
+  var homeVendors = await featuredVendors(selectedCity);
+  var homeDishes = await featuredDishes(selectedCity);
   if(req.query.valid) {
       selectedCity = req.query.valid;
   }
