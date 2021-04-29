@@ -82,7 +82,7 @@ router.post("/profile", (req, res) => {
   res.redirect("/profile");
 });
 
-router.post("/cart/add", (req, res) => {
+router.post("/cart/add", loginAuth, (req, res) => {
   var dish_ID = req.body.dish_ID;
   addCart(cust_ID, dish_ID, 1);
   res.redirect("/");
@@ -106,7 +106,7 @@ router.post("/cart/update", (req, res) => {
   res.redirect("/cart");
 });
 
-router.post("/vendors/review", async (req, res) => {
+router.post("/vendors/review", loginAuth, async (req, res) => {
   const r = req.body;
   const url = req.headers.referer;
   const ven_ID = url.substring(30);
