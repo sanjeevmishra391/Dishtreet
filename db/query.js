@@ -2,35 +2,30 @@ const con = require("./connect");
 
 // fetches all the cities from database
 const getCities = () => {
-  const cities = [];
-  try {
-    con.query("SELECT * FROM zip_place", function (err, result, fields) {
-      if (err) throw err;
-      result.forEach((c) => {
-        cities.push(c);
+  return new Promise(function(resolve, reject) {
+    try {
+      con.query("SELECT * FROM zip_place", function (err, results, fields) {
+        if (err) throw err;
+        resolve(results);
       });
-    });
-    return cities;
-  } catch (e) {
-    console.log("Error");
-  }
+    } catch (e) {
+      console.log("Error");
+    }
+  });
 }
 
 // fetches all the featured vendors to be displayed in home page
 const featuredVendors = (zipcode) => {
-  const vendors = [];
-  try {
-    con.query("SELECT * FROM vendor WHERE zipcode = ? LIMIT 5", [zipcode],  function (err, results, fields) {
-      if (err) throw err;
-
-      results.forEach((v) => {
-        vendors.push(v);
+  return new Promise(function(resolve, reject) {
+    try {
+      con.query("SELECT * FROM vendor WHERE zipcode = ? LIMIT 5", [zipcode],  function (err, results, fields) {
+        if (err) throw err;
+        resolve(results);
       });
-    });
-    return vendors;
-    } catch (e) {
-    console.log("error");
-  }
+      } catch (e) {
+      console.log("error");
+    }
+  });
 }
 
 // fetches the distinct dish categories served by any vendor
@@ -80,18 +75,16 @@ const getVendors = async (zipcode) => {
 
 // fetches all the featured dishes to be displayed in home page
 const featuredDishes = (zipcode) => {
-  const dishes = [];
-  try {
-    con.query("SELECT * FROM dish WHERE ven_ID in (SELECT ID FROM vendor WHERE zipcode = ?) LIMIT 6", [zipcode], function (err, result, fields) {
-      if (err) throw err;
-      result.forEach((d) => {
-        dishes.push(d);
+  return new Promise(function(resolve, reject) {
+    try {
+      con.query("SELECT * FROM dish WHERE ven_ID in (SELECT ID FROM vendor WHERE zipcode = ?) LIMIT 6", [zipcode], function (err, results, fields) {
+        if (err) throw err;
+        resolve(results);
       });
-    });
-    return dishes;
-  } catch (e) {
-    console.log("Error");
-  }
+    } catch (e) {
+      console.log("Error");
+    }
+  });
 }
 
 // fetches all the dishes of vendors in a given city
